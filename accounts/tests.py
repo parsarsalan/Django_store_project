@@ -24,7 +24,7 @@ class AccountsTest(TestCase):
 
     def test_login_template(self):
         response = self.client.get(reverse('login'))
-        self.assertTemplateUsed(response, template_name='registration/login.html')
+        self.assertTemplateUsed(response, template_name='account/login.html')
 
     def test_login_user(self):
         response = Client().post(reverse('login'), {'username': self.username})
@@ -40,7 +40,7 @@ class AccountsTest(TestCase):
 
     def test_signup_template(self):
         response = self.client.get(reverse('signup'))
-        self.assertTemplateUsed(response, 'registration/signup.html')
+        self.assertTemplateUsed(response, 'account/signup.html')
 
     def test_signup_user(self):
         self.assertEqual(get_user_model().objects.all().count(), 1, msg='signup a user is not working')
