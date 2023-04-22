@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-+#hz&aqp_e*1gfdu)-km&u^g^^vf+3el2l8v&+lwqn5=vj4(iq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # crispy form
     'crispy_forms',
+    'crispy_bootstrap4',
 
 
     # local apps
@@ -85,7 +86,6 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'db',
-        'PORT': 5443,
     }
 }
 
@@ -131,7 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # accounts settings :
 AUTH_USER_MODEL = 'accounts.CustomUserModel'
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home'
 
 # crispy form setup
-CRISPY_TEMPLATE_PACK = 'bootstrap'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap4'
