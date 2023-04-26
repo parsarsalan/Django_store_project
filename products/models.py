@@ -4,7 +4,6 @@ from django.urls import reverse
 
 
 class Products(models.Model):
-
     title = models.CharField(max_length=100)
     description = models.TextField()
     user = models.ForeignKey(get_user_model(), models.CASCADE)
@@ -17,10 +16,10 @@ class Products(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('products_detail', args=[self.pk])
+        return reverse('product_detail', args=[self.pk])
 
 
-class ProductsComment(models.Model):
+class ProductsComments(models.Model):
     STARS_CHOICES = (
         ('1', 'very bad'),
         ('2', 'bad'),
@@ -35,9 +34,6 @@ class ProductsComment(models.Model):
     datetime_modified = models.DateTimeField(auto_now=True)
     stars = models.CharField(max_length=10, choices=STARS_CHOICES, blank=True)
     active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.product_comment
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.product_id.pk])
