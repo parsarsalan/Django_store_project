@@ -1,0 +1,10 @@
+# folowing code's are for email sends from company of site's email :
+
+EMAIl_BACKEND = django.core.mail.backends.smtp.EmailBackend
+# -> gmail.com is an example
+EMAIL_HOST = smtp.gmail.com
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "something@something.com"
+EMAIL_HOST PASSWORD = "password of something@something.com"
+
