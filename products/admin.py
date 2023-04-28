@@ -10,3 +10,4 @@ class ProductsAdmin(admin.ModelAdmin):
 @admin.register(ProductsComments)
 class ProductsCommentsAdmin(admin.ModelAdmin):
     fields = ('text', 'product', 'author', 'stars', 'active',)
+

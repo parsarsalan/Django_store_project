@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load comment_tags %}
 
 {% block title %}
 
@@ -14,7 +15,7 @@
     -----------------------------------------------------------
     comments :
     <h1 >
-    {% for comment in product.comments.all %}
+    {% for comment in product.comments.all|only_active_comments %}
 
         {{ comment.author }}
         {{ comment.text }}
