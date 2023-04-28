@@ -6,7 +6,7 @@ from django.urls import reverse
 class Products(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    user = models.ForeignKey(get_user_model(), models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     price = models.PositiveIntegerField(default=0)
@@ -27,13 +27,16 @@ class ProductsComments(models.Model):
         ('4', 'good'),
         ('5', 'perfect')
     )
-    product_comment = models.TextField()
-    product_user = models.ForeignKey(get_user_model(), models.CASCADE, related_name='comments')
-    product_id = models.ForeignKey(Products, models.CASCADE, related_name='comments')
+    text = models.TextField()
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
+    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='comments')
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     stars = models.CharField(max_length=10, choices=STARS_CHOICES, blank=True)
     active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.product_id.pk])
+        return reverse('product_detail', args=[self.product.id])
+
+    def __str__(self):
+        return f'{self.author}'

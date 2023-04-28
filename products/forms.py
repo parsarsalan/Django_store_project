@@ -5,4 +5,5 @@ from .models import ProductsComments
 class ProductsCommentsForm(ModelForm):
     class Meta:
         model = ProductsComments
-        fields = ('product_comment', 'stars',)
+        fields = ('text', 'stars',)
+

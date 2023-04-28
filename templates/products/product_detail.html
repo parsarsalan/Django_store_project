@@ -1,1 +1,37 @@
-product detail
+{% extends '_base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h1> {{ product.title }} </h1>
+    <p> {{ product.datetime_created }} </p>
+    <p> {{ product.description }}</p>
+
+    -----------------------------------------------------------
+    comments :
+    <h1 >
+    {% for comment in product.comments.all %}
+
+        {{ comment.author }}
+        {{ comment.text }}
+    {% endfor %}
+
+    </h1>
+
+
+
+
+    <form method="post" action="{% url 'product_comment' product.id  %}" >
+        {% csrf_token %}
+
+        {{ comment_form.as_p }}
+
+        <input type="submit" value="sent">
+
+    </form>
+
+{% endblock %}
