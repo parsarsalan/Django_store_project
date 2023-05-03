@@ -1,1 +1,40 @@
-this is about us page without any design
+{% extends '_base.html' %}
+{% load i18n %}
+
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+    <!-- Main Content Wrapper Start -->
+    <div id="content" class="main-content-wrapper">
+        <div class="page-content-inner pt--75">
+            <div class="container">
+                <div class="row pb--80">
+                    <div class="col-md-7 mb-sm--30">
+                        <h2 class="heading__secondary mb--50 mb-md--35 mb-sm--20">پیام خود را به ما بگویید</h2>
+
+                    <div class="col-md-5 pl--50 pl-sm--30">
+                        <h2 class="heading__secondary mb--50">{% translate "contact's information" %}</h2>
+
+                        <!-- Contact info widget start here -->
+                        <div class="contact-info-widget two-column-list sm-one-column mb--45">
+                            <div class="contact-info mb-sm--35">
+                                <h3 class="heading__tertiary">{% translate 'call info' %}</h3>
+                                <a href="tel:+989028000399">{% translate 'Call me' %}</a>
+                            </div>
+                            <div class="contact-info">
+                                <h3 class="heading__tertiary">{% translate 'Email info' %}</h3>
+                                <a href="mailto:parsarsalan@gmail.com">{% translate 'Mail me' %}</a>
+                            </div>
+                        </div>
+                        <!-- Contact info widget end here -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content Wrapper Start -->
+
+{% endblock %}
