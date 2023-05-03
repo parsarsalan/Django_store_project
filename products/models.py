@@ -32,12 +32,12 @@ class ProductsComments(models.Model):
         ('4', 'good'),
         ('5', 'perfect')
     )
-    text = models.TextField()
+    text = models.TextField(verbose_name="comment text")
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='comments')
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-    stars = models.CharField(max_length=10, choices=STARS_CHOICES, blank=True)
+    stars = models.CharField(max_length=10, choices=STARS_CHOICES, blank=True, verbose_name="Score of Product")
     active = models.BooleanField(default=True)
 
 
