@@ -64,3 +64,10 @@ class Cart:
         """
         return len(self.cart.keys())
 
+    def total_price(self):
+        """
+        get total price of products in cart.
+        """
+        products_ids = self.cart.keys()
+        products = Products.objects.filter(id__in=products_ids)
+        return sum(product.price for product in products)
