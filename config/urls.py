@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('products/', include('products.urls')),
+    path('cart/', include('cart.urls')),
     # -> third party apps
     path('accounts/', include('allauth.urls')),
     path('rosetta/', include('rosetta.urls')),
