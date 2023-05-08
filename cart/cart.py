@@ -10,40 +10,44 @@ class Cart:
             cart = self.session['cart'] = {}
         self.cart = cart
 
-    def add_to_cart(self, product, quantity=1):
+    def add_to_cart(self, product, quantity=1, replace_current_quantity=False):
         """
         add a specific product with quantity of it in the cart.
         """
-        product_id = str(product.id)
+        pk = str(product.id)
 
-        if product_id not in self.cart:
-            self.cart['product_id'] = {
-                'quantity': quantity,
-            }
+        if pk not in self.cart:
+            self.cart[pk] = {'quantity': 0}
+
+        if replace_current_quantity:
+            self.cart[pk]['quantity'] = quantity
         else:
-            self.cart['product_id']['quantity'] += quantity
+            self.cart[pk]['quantity'] += quantity
         self.save_to_cart()
 
     def remove_from_cart(self, product):
         """
         remove specific product from the cart.
         """
-        product_id = str(product.id)
-        if product_id in self.cart:
-            del self.cart[product_id]
+        pk = str(product.id)
+        if pk in self.cart:
+            del self.cart[pk]
             self.save_to_cart()
 
     def __iter__(self):
         """
-        get and iteration every object of a product who added in cart from database.
+        get and iteration on every object of a product who added in cart from database.
         """
         product_ids = self.cart.keys()
         products = Products.objects.filter(id__in=product_ids)
+
         cart = self.cart.copy()
+
         for product in products:
-            cart[str(product.id)]['product_objects'] = product
-        for value in cart.values():
-            yield value
+            cart[str(product.id)]['product_obj'] = product
+
+        for item in cart.values():
+            yield item
 
     def save_to_cart(self):
         """
