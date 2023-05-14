@@ -47,6 +47,7 @@ class Cart:
             cart[str(product.id)]['product_obj'] = product
 
         for item in cart.values():
+            item['total_price'] = item['quantity'] * item['product_obj'].price
             yield item
 
     def save_to_cart(self):
@@ -66,12 +67,11 @@ class Cart:
         """
         get a len of all products already added in cart.
         """
-        return len(self.cart.keys())
+        return sum(item['quantity'] for item in self.cart.values())
 
     def total_price(self):
         """
         get total price of products in cart.
         """
         products_ids = self.cart.keys()
-        products = Products.objects.filter(id__in=products_ids)
-        return sum(product.price for product in products)
+        return sum(item['quantity']*item['product_obj'].price for item in self.cart.values())
