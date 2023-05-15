@@ -1,5 +1,6 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
-from django.urls import reverse
+from django.utils.translation import gettext as _
 from django.views.generic import ListView, DetailView, CreateView
 
 
@@ -35,5 +36,6 @@ class ProductsCommentView(CreateView):
         obj.author = self.request.user
         pk = int(self.kwargs['pk'])
         obj.product = get_object_or_404(Products, id=pk)
+        messages.success(self.request, _('Your comment successfully added'))
         return super().form_valid(form)
 

@@ -83,7 +83,7 @@
                                                 </td>
                                                 <td class="product-total-price">
                                                                 <span class="product-price-wrapper">
-                                                                    <span class="money">{{ item.total_price }} تومان</span>
+                                                                    <span class="money">{{ item.total_price }} {% translate '$' %}</span>
                                                                 </span>
                                                 </td>
                                             </tr>
@@ -104,15 +104,15 @@
                     <div class="col-lg-4">
                         <div class="cart-collaterals">
                             <div class="cart-totals">
-                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
+                                <h5 class="font-size-14 font-bold mb--15">{% translate 'Total' %}</h5>
                                 <div class="cart-calculator">
                                     <div class="cart-calculator__item order-total">
                                         <div class="cart-calculator__item--head">
-                                            <span>جمع کل</span>
+                                            <span>{% translate 'Total Price' %}</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.total_price }} تومان </span>
+                                                    <span class="money">{{ cart.total_price }} {% translate '$' %} </span>
                                                 </span>
                                         </div>
                                     </div>

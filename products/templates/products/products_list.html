@@ -40,14 +40,7 @@
                                                             <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"
                                                                  alt="Products">
                                                         </a>
-                                                        <div class="ShoppingYar-product-action">
-                                                            <div class="product-action d-flex">
-                                                                <a href="wishlist.html" class="action-btn">
-                                                                    <i class="flaticon flaticon-like"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <span class="product-badge">تخفیف ویژه</span>
+
                                                     </figure>
                                                     <div class="product-info">
                                                         <h3 class="product-title mb--15">
@@ -56,9 +49,9 @@
                                                         <div class="product-price-wrapper mb--30">
                                                             <span class="money">{{ product.price }} {% translate '$' %}</span>
                                                         </div>
-                                                        <a href="{% url 'cart:cart_add_product' product.id %}"
-                                                           class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه
-                                                            کردن به سبد خرید</a>
+                                                        <a href="{% url 'product_detail' product.id %}"
+                                                           class="btn btn-small btn-bg-sand btn-color-dark px-3">{% translate 'product detail' %}
+                                                            </a>
                                                     </div>
                                                 </div>
                                             </div>
