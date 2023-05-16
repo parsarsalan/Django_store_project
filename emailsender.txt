@@ -1,4 +1,5 @@
-# folowing code's are for email sends from company of site's email :
+# -> by add this following code in config/settings.py we can send email to the user Email.
+# following codes are for email sends from company of site's email :
 
 EMAIl_BACKEND = django.core.mail.backends.smtp.EmailBackend
 # -> gmail.com is an example

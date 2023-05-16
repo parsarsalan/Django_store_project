@@ -1,6 +1,6 @@
 {% extends '_base.html' %}
 {% load i18n %}
-
+{% load pagination_tags %}
 {% block title %}
 
 {% endblock %}
@@ -36,10 +36,12 @@
                                             <div class="ShoppingYar-product">
                                                 <div class="product-inner">
                                                     <figure class="product-image">
-                                                        <a href="{% url 'product_detail' product.id %}">
-                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"
-                                                                 alt="Products">
-                                                        </a>
+                                                        {% if product.image %}
+                                                            <a href="{% url 'product_detail' product.id %}">
+                                                                <img src="{{ product.image.url }}"
+                                                                     alt="Products">
+                                                            </a>
+                                                        {% endif %}
 
                                                     </figure>
                                                     <div class="product-info">
@@ -51,7 +53,7 @@
                                                         </div>
                                                         <a href="{% url 'product_detail' product.id %}"
                                                            class="btn btn-small btn-bg-sand btn-color-dark px-3">{% translate 'product detail' %}
-                                                            </a>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,15 +64,26 @@
                             </div>
                         </div>
                         <nav class="pagination-wrap mt--35 mt-md--25 pb-5">
-                            <ul class="pagination">
-                                <li><a href="#" class="next page-number"><i class="fa fa-angle-double-right"></i></a>
-                                </li>
-                                <li><span class="current page-number">1</span></li>
-                                <li><a href="#" class="page-number">2</a></li>
-                                <li><a href="#" class="page-number">3</a></li>
-                                <li><a href="#" class="prev page-number"><i class="fa fa-angle-double-left"></i></a>
-                                </li>
-                            </ul>
+                            {% for contact in page_obj %}
+                                {{ contact.full_name|upper }}<br>
+                            {% endfor %}
+                            <div class="pagination">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                    {% endif %}
+                                    <span class="current">
+                                        {% for num_page in page_obj.paginator.page_range%}
+                                            <a href="?page={{ num_page }}"> {{ num_page }}</a>
+                                        {% endfor %}
+                                    </span>
+                                    {% if page_obj.has_next %}
+                                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </div>
                         </nav>
                     </div>
                 </div>

@@ -10,9 +10,9 @@ class CommentInLine(admin.TabularInline):
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):
-    fields = ('title', 'user', 'active', 'price', 'description',)
+    fields = ('title', 'image', 'user', 'active', 'price', 'description',)
     inlines = [
-        CommentInLine        # -> show comment in line in admin page
+        CommentInLine,        # -> show comment in line in admin page
     ]
 
 
