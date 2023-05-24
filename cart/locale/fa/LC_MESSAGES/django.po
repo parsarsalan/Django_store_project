@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 08:36+0430\n"
-"PO-Revision-Date: 2023-05-14 08:38+0430\n"
+"POT-Creation-Date: 2023-05-20 14:09+0430\n"
+"PO-Revision-Date: 2023-05-20 12:12+0430\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,10 +19,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
 
+#: .\cart.py:31
+msgid "Product successfully added in Cart"
+msgstr "تعداد محصول با موفقیت تغییر یافت"
+
+#: .\cart.py:42
+msgid "Product successfully removed from Cart"
+msgstr "محصول با موفقیت از سبد خرید حذف شد"
+
+#: .\forms.py:7
+#, fuzzy
+#| msgid "quantity"
+msgid "_quantity"
+msgstr "تعداد"
+
 #: .\templates\cart\cart_detail.html:7 .\templates\cart\cart_detail.html:18
 msgid "Cart Detail"
 msgstr "جزئیات سبد خرید"
 
-#: .\templates\cart\cart_detail.html:99
+#: .\templates\cart\cart_detail.html:91 .\templates\cart\cart_detail.html:123
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\cart\cart_detail.html:106
 msgid "Clear Cart"
 msgstr "خالی کردن سبد خرید"
+
+#: .\templates\cart\cart_detail.html:115
+msgid "Total"
+msgstr "مجموع"
+
+#: .\templates\cart\cart_detail.html:119
+msgid "Total Price"
+msgstr "جمع کل"
+
+#: .\views.py:50
+msgid "your products in cart cleared successfully"
+msgstr "سبد خرید شما با موقیت خالی شد"
+
+#: .\views.py:52
+msgid "your cart already empty"
+msgstr "سبد خرید شما در حال حاضر خالی است"

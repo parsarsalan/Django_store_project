@@ -46,10 +46,15 @@
                                         </thead>
                                         <tbody>
                                         {% for item in cart %}
-                                            <tr>
-                                                <td class="product-remove text-left"><a
-                                                        href="{% url 'cart:cart_remove_product' item.product_obj.id %}"><i
-                                                        class="flaticon flaticon-cross"></i></a></td>
+                                            <tr><td class="product-remove text-left">
+                                                    <form action="{% url 'cart:cart_remove_product' item.product_obj.id %}"
+                                                      method="post">
+                                                    {% csrf_token %}
+                                                     <button
+                                                            class="flaticon flaticon-cross" type="submit"></button></form>
+                                                </td>
+
+
                                                 <td class="product-thumbnail text-left">
                                                     <img src="assets/img/products/prod-10-70x88.jpg"
                                                          alt="Product Thumnail">
@@ -94,9 +99,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row no-gutters border-top pt--20 mt--20" href="cart:clear_cart">
+                        <div class="row no-gutters border-top pt--20 mt--20">
                             <div class="col-sm-6 text-sm-right">
-                                <button type="submit" class="cart-form__btn">{% translate 'Clear Cart' %}</button>
+                                <form action="{% url "cart:cart_clear" %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="cart-form__btn">{% translate 'Clear Cart' %}</button>
+                                </form>
                             </div>
                         </div>
 

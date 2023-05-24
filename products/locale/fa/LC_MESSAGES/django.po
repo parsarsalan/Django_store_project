@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 08:37+0430\n"
-"PO-Revision-Date: 2023-05-14 08:41+0430\n"
+"POT-Creation-Date: 2023-05-20 14:18+0430\n"
+"PO-Revision-Date: 2023-05-20 14:18+0430\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: .\models.py:15
+msgid "image"
+msgstr "عکس محصول"
+
+#: .\models.py:42
+msgid "Score of Product"
+msgstr "امتیاز محصول"
 
 #: .\templates\products\product_detail.html:7
 msgid "Product Detail"
@@ -28,30 +36,51 @@ msgid "product detail of"
 msgstr "جزئیات محصول"
 
 #: .\templates\products\product_detail.html:44
-#: .\templates\products\products_list.html:57
+#: .\templates\products\products_list.html:51
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:52
-msgid "Add To cart"
-msgstr "اضافه کردن به سبد خرید"
+#: .\templates\products\product_detail.html:55
+#| msgid "Add To cart"
+msgid "Add to Cart"
+msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_detail.html:66
+#: .\templates\products\product_detail.html:70
 msgid "product details"
 msgstr "جزئیات محصول"
 
-#: .\templates\products\product_detail.html:113
-msgid "is about"
-msgstr "درباره ی"
+#: .\templates\products\product_detail.html:74
+msgid "attributes"
+msgstr "ویژگی ها"
 
-#: .\templates\products\product_detail.html:113
+#: .\templates\products\product_detail.html:78
+msgid "comments"
+msgstr "نظرات"
+
+#: .\templates\products\product_detail.html:117
 msgid "opinion about"
 msgstr "نظر شما درباره ی"
 
-#: .\templates\products\product_detail.html:131
+#: .\templates\products\product_detail.html:135
 msgid "Rated"
 msgstr "امتیاز"
 
-#: .\templates\products\product_detail.html:151
+#: .\templates\products\product_detail.html:155
 msgid "write your opinion here"
 msgstr "نظر خود را به اشتراک بگذارید"
+
+#: .\templates\products\product_detail.html:170
+msgid "you need login first to add a comment"
+msgstr "برای ارسال نظر لطفا ثبت نام کنید و سپس وارد سایت شوید"
+
+#: .\templates\products\products_list.html:54
+#| msgid "product details"
+msgid "product detail"
+msgstr "جزئیات محصول"
+
+#: .\views.py:40
+msgid "Your comment successfully added"
+msgstr "نظر شما با موفقیت ارسال شد"
+
+#~ msgid "is about"
+#~ msgstr "درباره ی"
